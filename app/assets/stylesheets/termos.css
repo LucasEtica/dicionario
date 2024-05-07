@@ -1,0 +1,67 @@
+.div_principal_termos{
+    margin-top: 10%;
+    margin-left: 49%;
+    transform: translate(-50%, -50%);
+  /* width: 300px; */
+  /* height: 200px; */ 
+}
+
+.dev_user_logado_termos{
+    top:5%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.img_user{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.nome_user{
+    text-decoration: none;
+    font-size : 30px;
+    color: black;
+}
+
+.link_sair_conta{
+    margin-left: 0; 
+    position: relative;
+    text-decoration: none;
+    color: red;
+}
+
+.input_busca{
+    width: 500px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 15px;
+}
+
+.botao_busca{
+    margin-left: -5px;
+    height: 36px;
+    font-size: 15px;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.div_busca{
+    text-align: center;
+}
+
+.div_conteudo{
+    margin-top: -11%;
+    margin-left: 26%;
+}
+
+.novo_termo{
+    border: 2px solid rgb(1, 119, 1);
+    background-color: rgb(101, 156, 101);
+    color: white;
+    padding: 7px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-left: 50px;
+    font-size: 15px;
+}

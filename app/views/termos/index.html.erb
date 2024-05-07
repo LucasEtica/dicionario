@@ -1,0 +1,17 @@
+<h1>Termos</h1>
+
+<div id="termos">
+<% if @termos.any? %>
+  <% @termos.each do |termo| %>
+    <div id="<%= dom_id termo %>">
+      <p>
+        <%= link_to "#{termo.titulo}", termo %>
+      </p>
+    </div>
+  <% end %>
+<% else %>
+    <p style="color:red">Não há termos!</p>
+<% end %>
+</div>
+
+

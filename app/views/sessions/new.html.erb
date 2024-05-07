@@ -1,0 +1,19 @@
+<div class="div_login">
+  <h1>Login</h1>
+
+  <% if @erro %>
+    <div style="color: red"><%= @erro %></div>
+  <% end %>
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |form| %>
+    <p>
+    <%= form.label :login %><br>
+    <%= form.text_field :login, autofocus: true %><br>
+    
+    <%= form.label :senha %><br>
+    <%= form.password_field :senha %><br>
+    
+    <%= form.submit "Entrar" %>
+    </p>
+  <% end %>
+  <%= link_to "Cadastrar-se", new_usuario_path %>
+</div>

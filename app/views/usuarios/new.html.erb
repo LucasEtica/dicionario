@@ -1,0 +1,57 @@
+<div class="div_cadastro">
+    <h1>Cadastro:</h1> 
+    <% usuario = @usuario %>
+    <%= form_with(model: @usuario, local: true) do |form| %>
+        <% if usuario.errors.any? %>
+            <div style="color: red">
+            <p>
+                Não foi possivel fazer o cadastro:
+            </p>
+            <ul>
+                <% usuario.errors.each do |erro| %>
+                    <% if erro.full_message == "Nome Translation missing. Options considered were:\n- pt-BR.activerecord.errors.models.usuario.attributes.nome.blank\n- pt-BR.activerecord.errors.models.usuario.blank\n- pt-BR.activerecord.errors.messages.blank\n- pt-BR.errors.attributes.nome.blank\n- pt-BR.errors.messages.blank" %>
+                        <li>Nome deve ser preenchido!</li>
+                    <% elsif erro.full_message == "Login Translation missing. Options considered were:\n- pt-BR.activerecord.errors.models.usuario.attributes.login.blank\n- pt-BR.activerecord.errors.models.usuario.blank\n- pt-BR.activerecord.errors.messages.blank\n- pt-BR.errors.attributes.login.blank\n- pt-BR.errors.messages.blank" %>
+                        <li>Login deve ser preenchido!</li>
+                    <% elsif erro.full_message == "Senha Translation missing. Options considered were:\n- pt-BR.activerecord.errors.models.usuario.attributes.senha.blank\n- pt-BR.activerecord.errors.models.usuario.blank\n- pt-BR.activerecord.errors.messages.blank\n- pt-BR.errors.attributes.senha.blank\n- pt-BR.errors.messages.blank" %>
+                        <li>Senha deve ser preenchido!</li>
+                    <% elsif erro.full_message == "Login Translation missing. Options considered were:\n- pt-BR.activerecord.errors.models.usuario.attributes.login.taken\n- pt-BR.activerecord.errors.models.usuario.taken\n- pt-BR.activerecord.errors.messages.taken\n- pt-BR.errors.attributes.login.taken\n- pt-BR.errors.messages.taken" %>
+                        <li>Login já está em uso, escolha outro!</li>
+                    <%end%>
+                <% end %> 
+            </ul>
+            </div>
+        <% end %>
+
+        <div>
+            <%= form.label :nome, style: "display: block" %>
+            <%= form.text_field :nome %>
+        </div>
+
+        <div>
+            <%= form.label :login, style: "display: block" %>
+            <%= form.text_field :login %>
+        </div>
+
+        <div>
+            <%= form.label :senha, style: "display: block" %>
+            <%= form.text_field :senha %>
+        </div>
+
+        <div class="field">
+            <%= form.label :profile_picture, "Escolha sua imagem de perfil" %><br>
+            <%= form.file_field :profile_picture %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+        <% if @usuario_logado %>
+            <%= button_to "Destroy this usuario", @usuario, method: :delete %>
+            <%= link_to "Voltar", termos_path %>
+        <% else %>
+            <%= link_to "Voltar", login_path %>
+        <% end %>
+    <% end %>
+<div>
+

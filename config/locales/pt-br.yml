@@ -1,0 +1,10 @@
+pt-BR:
+  hello: "Olá"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            login:
+              taken: "já está em uso"

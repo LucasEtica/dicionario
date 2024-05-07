@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dicionarioes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= link_to 'Sair', logout_path, class:"link_sair_conta" if logged_in? %>
+    <div class="div_principal_termos">
+      <% if logged_in? %>
+        <div class="dev_user_logado_termos">
+          <p>
+            <% if @usuario_logado.profile_picture.attached? %>
+              <%= image_tag @usuario_logado.profile_picture, class:"img_user"%>
+            <% else %> 
+              <div class="img_user">
+              </div>
+            <% end %> <br>
+            <%= link_to @usuario_logado.nome, edit_usuario_path(@usuario_logado), class:"nome_user" %>
+          </p>
+        </div>
+        <div class="div_busca">
+          <p>
+            <%= form_with url: termos_path, method: :get, local: true do |form| %>
+              <%= form.text_field :busca,  placeholder: "Digite os termos que deseja encontrar...", class:"input_busca" %>
+              <%= form.submit "Buscar", class:"botao_busca" %>
+            <% end %>
+          </p>
+        </div>
+        <%= link_to "Novo Termo", new_termo_path, class:"novo_termo" %>
+
+        <div class="alphabet-links">
+          <% ('A'..'Z').each do |letra| %>
+            <%= link_to letra, termos_path(letra: letra), class: "div_letrar" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="div_conteudo">
+      <%= yield %>
+    </div>
+  </body>
+</html>
